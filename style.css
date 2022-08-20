@@ -1,0 +1,77 @@
+html {
+  font-family: monospace;
+  font-size: large;
+  overflow: hidden;
+}
+
+button {
+  font-family: monospace;
+  font-size: large;
+  padding: 10px 20px 10px 20px;
+}
+
+body {
+  max-width: 420px;
+}
+
+body > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 5px 10px 5px 10px;
+}
+
+.status-led {
+  margin-inline-end: 5px;
+}
+
+.status-led.alive {
+  color: green;
+}
+
+.status-led.dead {
+  color: red;
+}
+
+.toast {
+  margin-top: 10px;
+  width: fit-content;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  animation: toast-in 0.4s ease;
+  /* transition: all 0.4s ease-in-out; */
+  /* transform: translateY(0); */
+}
+
+.toast.dead {
+  animation: toast-out 0.4s ease;
+}
+
+@keyframes toast-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes toast-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}

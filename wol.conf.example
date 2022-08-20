@@ -1,0 +1,7 @@
+[targets]
+MAIN-DESKTOP=192.168.0.2,05:84:53:0C:4F:C5
+MEDIA-PC=192.168.0.17,18:70:C4:84:0B:33
+Some-Other-Host=192.168.0.161,10:7A:0F:AB:58:6A
+
+[wol]
+port=9

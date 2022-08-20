@@ -1,0 +1,37 @@
+{
+  "name": "Wake-on-Lan",
+  "short_name": "WoL",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "icon-32.png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "icon-48.png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "icon-72.png",
+      "sizes": "72x72"
+    },
+    {
+      "src": "icon-96.png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "icon-128.png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "icon-256.png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any"
+    }
+  ]
+}
