@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "$id": "http://zeevro.com/schemas/wol-server/config.json",
+  "title": "wol-server configuration",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "log-level": {
+      "description": "Log level for server",
+      "enum": [
+        "critical",
+        "debug",
+        "error",
+        "info",
+        "warning"
+      ],
+      "default": "info"
+    },
+    "port": {
+      "description": "WoL packet destination port",
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 65535,
+      "default": 9
+    },
+    "wake-check-time": {
+      "description": "Time to wait after wake before checking liveness",
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 10,
+      "default": 8
+    },
+    "target": {
+      "description": "Target hosts",
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Target"
+      },
+      "default": []
+    }
+  },
+  "required": [],
+  "additionalProperties": false,
+  "$defs": {
+    "Target": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "description": "Name to show in main table",
+          "type": "string",
+          "default": ""
+        },
+        "ip": {
+          "description": "IP address for broadcast",
+          "examples": [
+            "192.168.0.14",
+            "fd00:7a65:6576:726f::52"
+          ],
+          "anyOf": [
+            {
+              "format": "ipv4"
+            },
+            {
+              "format": "ipv6"
+            }
+          ],
+          "type": "string"
+        },
+        "mac": {
+          "description": "MAC address for magic packet",
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{2}([\\s:-]*[0-9A-Fa-f]{2}){5}$"
+        }
+      },
+      "required": [
+        "ip",
+        "mac"
+      ],
+      "additionalProperties": false,
+      "x-tombi-table-keys-order": "schema"
+    }
+  },
+  "x-tombi-string-formats": [
+    "ipv4",
+    "ipv6"
+  ]
+}

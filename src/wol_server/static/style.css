@@ -25,7 +25,9 @@ h1 {
   text-align: center;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
@@ -33,20 +35,18 @@ table {
   border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
   padding: 5px 10px 5px 10px;
 }
 
 .status-led {
   margin-inline-end: 5px;
+  color: red;
 }
 
 .status-led.alive {
   color: green;
-}
-
-.status-led.dead {
-  color: red;
 }
 
 .toast {
@@ -67,11 +67,19 @@ th, td {
 }
 
 @keyframes toast-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes toast-out {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

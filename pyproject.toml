@@ -1,0 +1,59 @@
+[project]
+name = "wol-server"
+version = "1.0.0"
+requires-python = ">=3.14"
+dependencies = [
+    "flask",
+    "msgspec",
+    "netifaces-plus",
+    "platformdirs",
+]
+
+[project.optional-dependencies]
+gunicorn = ["gunicorn"]
+
+[build-system]
+requires = ["uv_build>=0.11.1,<0.12"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 150
+output-format = "concise"
+namespace-packages = ["scripts"]
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "W191", # tab-indentation - conflicts with formatter
+    "E111", # indentation-with-invalid-multiple - conflicts with formatter
+    "E114", # indentation-with-invalid-multiple-comment - conflicts with formatter
+    "E117", # over-indented - conflicts with formatter
+    "D206", # indent-with-spaces - conflicts with formatter
+    "D300", # triple-single-quotes - conflicts with formatter
+    "Q000", # bad-quotes-inline-string - conflicts with formatter
+    "Q001", # bad-quotes-multiline-string - conflicts with formatter
+    "Q002", # bad-quotes-docstring - conflicts with formatter
+    "Q003", # avoidable-escaped-quote - conflicts with formatter
+    "COM812", # missing-trailing-comma - conflicts with formatter
+    "COM819", # prohibited-trailing-comma - conflicts with formatter
+    "E501", # line-too-long - see formatter documentation
+
+    "FIX", # linter: flake8-fixme
+    "TD", # linter: flake8-todos
+    "D", # linter: pydocstyle
+]
+
+[tool.ruff.lint.isort]
+force-sort-within-sections = true
+lines-after-imports = 2
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.tombi.format.rules]
+indent-width = 4
+line-width = 120
+trailing-comment-space-width = 1
+
+[tool.ty.terminal]
+output-format = "concise"

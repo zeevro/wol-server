@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wake-on-LAN</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="manifest" href="static/manifest.json">
   </head>
   <body>
     <h1>Wake-on-LAN</h1>
@@ -19,13 +19,13 @@
       </tr>
       {% for target in targets %}
       <tr>
-        <td><span class="status-led {% if target.is_alive %}alive{% else %}dead{% endif %}" data-ip="{{ target.ip }}">&#x2B24</span>{{ target.name }}</td>
+        <td><span class="status-led{% if target.is_alive %} alive{% endif %}" data-ip="{{ target.ip }}">&#x2B24</span>{{ target.name }}</td>
         <td>{{ target.ip }}</td>
-        <td><button class="wake-btn"{% for k, v in target.__dict__.items() %} data-{{ k }}="{{ v }}"{% endfor %}>Wake</button></td>
+        <td><button class="wake-btn" data-name="{{ target.name }}" data-ip="{{ target.ip }}" data-mac="{{ target.mac_str }}">Wake</button></td>
       </tr>
       {% endfor %}
     </table>
 
-    <script src="script.js"></script>
+    <script src="static/app.js"></script>
   </body>
 </html>

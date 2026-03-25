@@ -1,8 +1,2 @@
-*.pyc
 __pycache__/
-
-.vscode/
-
-venv/
-
-/wol.conf
+uv.lock

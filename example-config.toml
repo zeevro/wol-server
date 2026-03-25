@@ -1,0 +1,20 @@
+# Configuration file for `wol-server`, a Wake-on-Lan web server.
+#:schema ./config.schema.json
+
+log-level = "debug"
+
+port = 9
+
+[[target]]
+name = "MAIN-DESKTOP"
+ip = "192.168.0.2"
+mac = "05:84:53:0C:4F:C5"
+
+[[target]]
+name = "MEDIA-PC"
+ip = "fd00:7a65:6576:726f::14"
+mac = "18-70-C4-84-0B-33"
+
+[[target]]
+ip = "192.168.0.161"
+mac = "10 7A 0F AB 58 6A"
