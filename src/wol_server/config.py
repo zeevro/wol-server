@@ -1,4 +1,4 @@
-from typing import Annotated, Literal
+from typing import Annotated, Any, Literal
 
 import msgspec.toml
 import platformdirs
@@ -42,6 +42,14 @@ class Target(msgspec.Struct, kw_only=True, forbid_unknown_fields=True):
     @property
     def is_alive(self) -> bool:
         return check_alive(self.ip)
+
+    def json(self) -> dict[str, Any]:
+        return {
+            'name': self.name,
+            'ip': self.ip,
+            'mac': self.mac_str,
+            'isAlive': self.is_alive,
+        }
 
 
 class Config(msgspec.Struct, kw_only=True, forbid_unknown_fields=True, rename='kebab'):

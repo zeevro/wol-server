@@ -1,4 +1,5 @@
 import logging
+import time
 
 from flask import Flask, Response, jsonify, render_template, request, send_file
 
@@ -26,6 +27,17 @@ def index() -> str:
 @app.route('/favicon.ico')
 def favicon() -> Response:
     return send_file('static/icon/icon.svg', 'image/svg+xml')
+
+
+@app.route('/app-vue/')
+def app_vue() -> Response:
+    return send_file('static/index-vue.html', 'text/html')
+
+
+@app.route('/targets/')
+def targets() -> Response:
+    time.sleep(1)
+    return jsonify([t.json() for t in config.targets])
 
 
 @app.route('/is_alive/<ip>/')
